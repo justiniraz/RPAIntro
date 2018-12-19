@@ -9,6 +9,7 @@ import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.componen
 import { HeaderComponent } from './ui/header/header.component';
 import { SuccessScreenComponent } from './success-screen/success-screen.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     NgbModule.forRoot(),
     FormsModule,
+    ReactiveFormsModule,
 
   ],
   providers: [],

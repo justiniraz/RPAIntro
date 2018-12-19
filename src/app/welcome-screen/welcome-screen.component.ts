@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../user';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-welcome-screen',
@@ -8,35 +9,37 @@ import { User } from '../user';
   styleUrls: ['./welcome-screen.component.scss']
 })
 export class WelcomeScreenComponent implements OnInit {
+  registerForm: FormGroup;
+  submitted = false;
 
   user = new User('', '', '', '');
 
-  userList = {
-    "admin@cedrus.digital": "password",
-    "test@cedrus.digital": "test"
-  };
 
-
-  constructor(private router: Router) {
+  constructor(private router: Router, private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+
+    });
+  }
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.registerForm.controls;
   }
 
   onSubmit() {
-    if (this.user.email in this.userList) {
-      if (this.userList[this.user.email] === this.user.password) {
-        this.router.navigate(['success/']);
-      }
-      else{
-        alert("Invalid password. Try again.");
-        
-      }
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
     }
-    else{
-      alert("Invalid username. Try again.");
-      
-    }
+
+    this.router.navigate(['success/']);
 
   }
 
