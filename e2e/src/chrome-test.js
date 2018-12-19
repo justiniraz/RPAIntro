@@ -1,6 +1,12 @@
 var webdriver = require("selenium-webdriver"),
     By = webdriver.By,
-    until = webdriver.until;
+    until = webdriver.until; 
+
+// wait until page loaded
+
+// wrap code into mocha
+
+// create test suite and set of units tests ( package.json ) ( jenkins )
 
 var driver = new webdriver.Builder()
     .forBrowser('chrome')
