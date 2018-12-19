@@ -2,8 +2,9 @@ var webdriver = require("selenium-webdriver"),
     By = webdriver.By,
     until = webdriver.until; 
 
-username = "admin@cedrus.digital";
-password = "password";
+username = 'admin@cedrus.digital';
+password = 'password';
+firstName = 'Justin';
 
 // wait until page loaded
 
@@ -15,14 +16,18 @@ var driver = new webdriver.Builder()
     .forBrowser('chrome')
     .build();
 
-var element = driver.findElement(By.id('email'));
 
 driver.get('http://localhost:4200');
+
+var fName = driver.wait(until.elementLocated(By.id('firstName')), 2000);
+fName.sendKeys(firstName);
+
 var user = driver.wait(until.elementLocated(By.id('email')), 2000);
 user.sendKeys(username);
 
 var pw = driver.wait(until.elementLocated(By.id('password')), 2000);
 pw.sendKeys(password);
 
-driver.findElement(By.id('submitbtn')).click();
+var btn = driver.wait(until.elementLocated(By.id('submitbtn')), 2000);
+btn.click();
 
