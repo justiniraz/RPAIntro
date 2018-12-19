@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -12,15 +11,14 @@ export class WelcomeScreenComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  user = new User('', '', '', '');
-
 
   constructor(private router: Router, private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-
+      firstName: ['', Validators.required],
+      lastName: [''],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
 
