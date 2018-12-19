@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { formatDate } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-success-screen',
@@ -11,12 +12,16 @@ export class SuccessScreenComponent {
   today = new Date();
   minutes = '';
 
-  constructor() {
+  constructor(private router: Router) {
     setInterval(() => {
       this.now = Date.now();
     }, 1);
 
     this.minutes = formatDate(this.today, 'mm', 'en-US', '-0500');
+  }
+
+  btnClick() {
+    this.router.navigate(['/dashboard']);
   }
 }
 

@@ -1,0 +1,70 @@
+{
+    "data": [
+        {
+            "item_number": 1,
+            "color": "red",
+            "date": "03-19-2016",
+            "description": "Beautiful, red colored wine."
+        },
+        {
+            "item_number": 2,
+            "color": "blue",
+            "date": "03-18-2016",
+            "description": "This balloon holds so much air!"
+        },
+        {
+            "item_number": 3,
+            "color": "green",
+            "date": "03-20-2016",
+            "description": "Elves are green too, you know."
+        },
+        {
+            "item_number": 4,
+            "color": "yellow",
+            "date": "03-21-2016",
+            "description": "Yellow highlights this objects sharp features."
+        },
+        {
+            "item_number": 5,
+            "color": "orange",
+            "date": "01-01-2017",
+            "description": "Orange as an orange."
+        },
+        {
+            "item_number": 6,
+            "color": "red",
+            "date": "05-18-2018",
+            "description": "Red like a Ferrari."
+        },
+        {
+            "item_number": 7,
+            "color": "purple",
+            "date": "12-25-2017",
+            "description": "Purple is the color of royalty..."
+        },
+        {
+            "item_number": 8,
+            "color": "black",
+            "date": "11-22-2018",
+            "description": "This black box came from the depths of an Indonesian mine."
+        },
+        {
+            "item_number": 9,
+            "color": "white",
+            "date": "02-11-2011",
+            "description": "White makes everything look cleaner..."
+        },
+        {
+            "item_number": 10,
+            "color": "cyan",
+            "date": "06-14-2017",
+            "description": "cyancat :)"
+        },
+        {
+            "item_number": 11,
+            "color": "indigo",
+            "date": "03-01-2015",
+            "description": "Excellent statue made of glass."
+        }
+    ]
+}

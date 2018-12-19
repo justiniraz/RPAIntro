@@ -1,0 +1,39 @@
+<div class="jumbotron"> 
+    <button class="btn btn-primary" id="showData" (click)="showData()">Show Data</button>
+    <div ng *ngIf="show"> 
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+      
+          <!-- Item Number Column -->
+          <ng-container matColumnDef="item_number">
+            <th mat-header-cell *matHeaderCellDef> Item Number </th>
+            <td mat-cell *matCellDef="let data"> {{data.item_number}} </td>
+          </ng-container>
+      
+          <!-- Color Column -->
+          <ng-container matColumnDef="color">
+            <th mat-header-cell *matHeaderCellDef> Color </th>
+            <td mat-cell *matCellDef="let data"> {{data.color}} </td>
+          </ng-container>
+      
+          <!-- Date Column -->
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let data"> {{data.date}} </td>
+          </ng-container>
+      
+          <!-- Description Column -->
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let data"> {{data.description}} </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+      </div>
+      
+</div>

@@ -34,6 +34,7 @@ export class WelcomeScreenComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
+      alert("My foot is swollen and the shoe doesn't fit");
       return;
     }
 
