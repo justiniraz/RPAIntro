@@ -11,11 +11,13 @@ import { SuccessScreenComponent } from './success-screen/success-screen.componen
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { JSONDataService } from '../service';
+import { RestProvider } from '../service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 import 'hammerjs';
 
 
@@ -28,6 +30,7 @@ import 'hammerjs';
     DashboardComponent
   ],
   imports: [
+    MDBBootstrapModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
     MatTableModule,
@@ -39,7 +42,7 @@ import 'hammerjs';
     ReactiveFormsModule
 
   ],
-  providers: [JSONDataService],
+  providers: [RestProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

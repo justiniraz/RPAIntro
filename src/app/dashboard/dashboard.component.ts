@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { JSONDataService } from '../../service';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import { Component, OnInit, ViewChild, HostListener, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { RestProvider } from '../../service';
+import { HttpClient } from '@angular/common/http';
+import { MdbTablePaginationComponent, MdbTableService } from 'angular-bootstrap-md';
+
 
 
 @Component({
@@ -8,29 +10,51 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
-  data: any;
+export class DashboardComponent implements OnInit, AfterViewInit {
+  @ViewChild(MdbTablePaginationComponent) mdbTablePagination: MdbTablePaginationComponent;
+
+  restData: any;
   show = true;
-  displayedColumns: string[] = ['item_number', 'color', 'date', 'description'];
-  dataSource = new MatTableDataSource(this.data);
+  elements: any = [];
+  previous: any = [];
+  firstItemIndex;
+  lastItemIndex;
+  displayedColumns = ['Item Number', 'Color', 'Date', 'Description'];
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private jsonDataService: JSONDataService) {
-    this.data = jsonDataService.getData();
-    this.dataSource.paginator = this.paginator;
+
+  constructor(private restProvider: RestProvider, private httpclient: HttpClient, private tableService: MdbTableService,
+    private cdRef: ChangeDetectorRef) {
     this.getData();
   }
 
   getData() {
-    this.jsonDataService.getData().subscribe(
-      data => { this.data = data },
-      err => console.error(err),
-      () => console.log('done loading data')
-    );
+    this.restProvider.getData()
+      .then(data => {
+        this.restData = data;
+        console.log(this.restData);
+      });
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    for (let i = 1; i <= 15; i++) {
+      this.elements.push({ item_number: i.toString(), color: 'color ' + i, date: 'date ' + i, description: 'description ' + i });
+    }
+
+    this.tableService.setDataSource(this.elements);
+    this.elements = this.tableService.getDataSource();
+    this.previous = this.tableService.getDataSource();
+  }
+
+  ngAfterViewInit() {
+    this.mdbTablePagination.setMaxVisibleItemsNumberTo(10);
+    this.firstItemIndex = this.mdbTablePagination.firstItemIndex;
+    this.lastItemIndex = this.mdbTablePagination.lastItemIndex;
+
+    this.mdbTablePagination.calculateFirstItemIndex();
+    this.mdbTablePagination.calculateLastItemIndex();
+    this.cdRef.detectChanges();
+  }
 
   showData() {
     if (this.show) {
@@ -42,5 +66,14 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  onNextPageClick(data: any) {
+    this.firstItemIndex = data.first;
+    this.lastItemIndex = data.last;
+  }
 
+  onPreviousPageClick(data: any) {
+    this.firstItemIndex = data.first;
+    this.lastItemIndex = data.last;
+  }
 }
+
