@@ -39,7 +39,7 @@ describe("Inner Suite 1", function () {
         var btn = chromeDriver.wait(until.elementLocated(By.id('submitbtn')), 2000);
         btn.click();
 
-        chromeDriver.quit();
+        //chromeDriver.quit();
 
     });
 
@@ -60,7 +60,7 @@ describe("Inner Suite 1", function () {
         var btn = safariDriver.wait(until.elementLocated(By.id('submitbtn')), 2000);
         btn.click();
 
-        safariDriver.quit();
+        //safariDriver.quit();
 
 
     });
@@ -81,7 +81,7 @@ describe("Inner Suite 1", function () {
         var btn = ffDriver.wait(until.elementLocated(By.id('submitbtn')), 2000);
         btn.click();
 
-        ffDriver.quit();
+        //ffDriver.quit();
 
     });
 

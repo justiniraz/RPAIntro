@@ -1,28 +1,30 @@
 <div class="jumbotron">
-    <table mdbTable hover="true" striped="true" class="z-depth-1">
-        <thead>
-          <tr>
-            <th *ngFor="let title of displayedColumns; let i = index" scope="col">{{title}}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let el of restData; let i = index">
-            <th *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" scope="row">{{el.item_number}}</th>
-            <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.color}}</td>
-            <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.data}}</td>
-            <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.description}}</td>
-          </tr>
-        </tbody>
-        <tfoot class="grey lighten-5 w-100">
-      
-          <tr>
-            <td colspan="4">
-              <mdb-table-pagination (nextPageClick)="onNextPageClick($event)" (previousPageClick)="onPreviousPageClick($event)">
-              </mdb-table-pagination>
-            </td>
-          </tr>
-      
-        </tfoot>
-      </table>
+    <div class="container">
+  <table mdbTable hover="true" striped="true" class="z-depth-5">
+    <thead>
+      <tr>
+        <th *ngFor="let column of displayedColumns; let i = index" scope="col" [mdbTableSort]="restData" [sortBy]="displayedColumns[i]">{{column}}
+          <mdb-icon icon="sort"></mdb-icon>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let el of restData; let i = index">
+        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el['item number']}}</td>
+        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.color}}</td>
+        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.date}}</td>
+        <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex">{{el.description}}</td>
+      </tr>
+    </tbody>
+    <tfoot class="grey lighten-5 w-100">
+      <tr>
+        <td colspan="4">
+          <mdb-table-pagination (nextPageClick)="onNextPageClick($event)" (previousPageClick)="onPreviousPageClick($event)">
+          </mdb-table-pagination>
+        </td>
+      </tr>
+
+    </tfoot>
+  </table>
+</div>
 </div>

@@ -13,12 +13,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RestProvider } from '../service';
 import { HttpClientModule } from '@angular/common/http';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 
 import 'hammerjs';
+import { FooterComponent } from './ui/footer/footer.component';
 
 
 @NgModule({
@@ -27,13 +28,13 @@ import 'hammerjs';
     WelcomeScreenComponent,
     HeaderComponent,
     SuccessScreenComponent,
-    DashboardComponent
+    DashboardComponent,
+    FooterComponent
   ],
   imports: [
+    AngularFontAwesomeModule,
     MDBBootstrapModule,
     BrowserAnimationsModule,
-    MatPaginatorModule,
-    MatTableModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,

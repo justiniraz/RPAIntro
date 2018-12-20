@@ -1,0 +1,160 @@
+<!-- Footer -->
+<footer class="page-footer font-small cyan darken-3">
+
+    <!-- Footer Links -->
+    <div class="container">
+  
+      <!-- Grid row-->
+      <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a (click)="aboutOnClick()">About us</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a (click)="helpOnClick()">Help</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a (click)="contactOnClick()">Contact</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <div *ngIf="about">
+        <!-- Grid row-->
+        <hr class="rgba-white-light" style="margin: 0 15%;">
+  
+        <!-- Grid row-->
+        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+  
+          <!-- Grid column -->
+  
+          <div class="col-md-8 col-12 mt-5">
+            <p style="line-height: 1.7rem">Justin Irazabal - Software Engineer for Cedrus Digital!</p>
+          </div>
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <div *ngIf="help">
+        <!-- Grid row-->
+        <hr class="rgba-white-light" style="margin: 0 15%;">
+  
+        <!-- Grid row-->
+        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+  
+          <!-- Grid column -->
+  
+          <div class="col-md-6 col-12 mt-5">
+            <p style="line-height: 1.7rem">This site is simple, just register!</p>
+          </div>
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+  
+      <div *ngIf="contact">
+          <hr class="rgba-white-light" style="margin: 0 15%;">
+  
+          <!-- Grid row-->
+          <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+        <!-- form goes here -->
+        <form>
+  
+          <!-- name -->
+          <br>
+          <div class="field">
+            <input type="text" name="name" class="input" placeholder="Your Name">
+          </div>
+    
+  
+          <!-- email -->
+          <div class="field">
+            <input type="email" name="email" class="input" placeholder="Your Email">
+          </div>
+  
+          <!-- message -->
+          <div class="field">
+            <textarea class="textarea" name="message" placeholder="What's on your mind?"></textarea>
+          </div>
+  
+          <button class="btn btn-primary" id="continue" type="submit">Submit</button>
+  
+        </form>
+        </div>
+      </div>
+  
+  
+      <!-- Grid row-->
+      <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+  
+      <!-- Grid row-->
+      <div class="row pb-3">
+  
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+      <!-- Grid row-->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-12 py-5">
+          <div class="mb-5 flex-center">
+
+            <!-- Facebook -->
+            <a class="fb-ic" href="http://www.facebook.com">
+              <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+              
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic" href="http://www.twitter.com">
+              <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!-- Google +-->
+            <a class="gplus-ic" href="https://plus.google.com/">
+              <i class="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!--Linkedin -->
+            <a class="li-ic" href="http://www.linkedin.com">
+              <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!--Instagram-->
+            <a class="ins-ic" href="http://www.instagram.com">
+              <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!--Pinterest-->
+            <a class="pin-ic" href="http://www.pinterest.com">
+              <i class="fa fa-pinterest fa-lg white-text fa-2x"> </i>
+            </a>
+          </div>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row-->
+
+    </div>
+    <!-- Footer Elements -->
+      </div>
+      <!-- Grid row-->
+  
+    </div>
+    <!-- Footer Links -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center pb-5 pt-4">Made with <i class="fa fa-heart"></i> by Justin Irazabal</div>
+    <!-- Copyright -->
+  </footer>

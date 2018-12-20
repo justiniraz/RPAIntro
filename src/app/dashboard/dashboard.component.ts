@@ -5,6 +5,7 @@ import { MdbTablePaginationComponent, MdbTableService } from 'angular-bootstrap-
 
 
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,18 +15,20 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   @ViewChild(MdbTablePaginationComponent) mdbTablePagination: MdbTablePaginationComponent;
 
   restData: any;
-  show = true;
+
   elements: any = [];
   previous: any = [];
   firstItemIndex;
   lastItemIndex;
   displayedColumns = ['Item Number', 'Color', 'Date', 'Description'];
+  
 
 
 
   constructor(private restProvider: RestProvider, private httpclient: HttpClient, private tableService: MdbTableService,
     private cdRef: ChangeDetectorRef) {
     this.getData();
+    
   }
 
   getData() {
@@ -37,8 +40,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    for (let i = 1; i <= 15; i++) {
-      this.elements.push({ item_number: i.toString(), color: 'color ' + i, date: 'date ' + i, description: 'description ' + i });
+    for (let i = 1; i <= 20; i++) {
+      this.elements.push({ itemnumber: 'item number', color: 'color ' + i, date: 'date ' + i, description: 'description ' + i });
     }
 
     this.tableService.setDataSource(this.elements);
@@ -56,15 +59,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.cdRef.detectChanges();
   }
 
-  showData() {
-    if (this.show) {
-      this.show = false;
-      return;
-    }
-    this.getData();
-    this.show = true;
-
-  }
 
   onNextPageClick(data: any) {
     this.firstItemIndex = data.first;
