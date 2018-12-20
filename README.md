@@ -92,7 +92,7 @@ All feature requests and enahancements will be provided via kanban board and/or 
 Software should have a "persistant" storage mechanism (backend, session, browser local storage, or similar) with form to CRUD data after successful login. Validation to support prevention of inserting duplicate data is requried.
 
 UI/UX:
-* "You know that we are living in a material world / and I'm a (material girl)[https://www.youtube.com/watch?v=6p-lDYPR2P8]"
+* "You know that we are living in a material world / and I'm a [material girl](https://www.youtube.com/watch?v=6p-lDYPR2P8)"
 * Responsive layout
 * Browser vendor and i18n support at application-level (console log vendor, language, and screen resolution)
 
