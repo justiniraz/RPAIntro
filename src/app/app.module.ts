@@ -16,11 +16,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
-
-import 'hammerjs';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FooterComponent } from './ui/footer/footer.component';
-
+import { SnackBarComponent } from './ui/snack-bar/snack-bar.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from  '@angular/material';
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -29,9 +30,13 @@ import { FooterComponent } from './ui/footer/footer.component';
     HeaderComponent,
     SuccessScreenComponent,
     DashboardComponent,
-    FooterComponent
+    FooterComponent,
+    SnackBarComponent
   ],
   imports: [
+    MatInputModule,
+    MatFormFieldModule,
+    MatSnackBarModule,
     AngularFontAwesomeModule,
     MDBBootstrapModule,
     BrowserAnimationsModule,

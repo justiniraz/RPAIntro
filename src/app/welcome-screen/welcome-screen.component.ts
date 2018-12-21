@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SnackBarComponent } from '../ui/snack-bar/snack-bar.component';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-welcome-screen',
@@ -10,9 +12,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class WelcomeScreenComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
+  snackbar: SnackBarComponent;
 
 
-  constructor(private router: Router, private formBuilder: FormBuilder) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private matsnackbar: MatSnackBar) {
+    this.snackbar = new SnackBarComponent(matsnackbar);
   }
 
   ngOnInit() {
@@ -34,7 +38,7 @@ export class WelcomeScreenComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
-      alert("My foot is swollen and the shoe doesn't fit");
+      this.snackbar.openSnackBar('We can\'t log in you in. Please try again.', 'Exit');
       return;
     }
 
