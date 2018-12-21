@@ -20,8 +20,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FooterComponent } from './ui/footer/footer.component';
 import { SnackBarComponent } from './ui/snack-bar/snack-bar.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from  '@angular/material';
+import { MatInputModule } from '@angular/material';
 import 'hammerjs';
+import { ErrorComponent } from './error/error.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -31,9 +33,11 @@ import 'hammerjs';
     SuccessScreenComponent,
     DashboardComponent,
     FooterComponent,
-    SnackBarComponent
+    SnackBarComponent,
+    ErrorComponent
   ],
   imports: [
+    MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
     MatSnackBarModule,
