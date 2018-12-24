@@ -1,70 +1,70 @@
 {
     "data": [
         {
-            "item_number": 1,
+            "item number": 1,
             "color": "Red",
-            "date": "03-19-2016",
+            "date": "2016-03-19",
             "description": "The usually round, red edible fruit of a small tree, Malus sylvestris, of the rose family"
         },
         {
-            "item_number": 2,
+            "item number": 2,
             "color": "Blue",
-            "date": "03-18-2016",
+            "date": "2016-03-18",
             "description": "The edible, usually bluish berry of various shrubs belonging to the genus Vaccinium, of the heath family."
 
         },
         {
-            "item_number": 3,
+            "item number": 3,
             "color": "Green",
-            "date": "03-20-2016",
+            "date": "2016-03-20",
             "description": "One of the expanded, usually green organs borne by the stem of a plant."
         },
         {
-            "item_number": 4,
+            "item number": 4,
             "color": "Yellow",
-            "date": "03-21-2016",
+            "date": "2016-03-21",
             "description": "A tropical plant of the genus Musa, certain species of which are cultivated for their nutritious fruit."
         },
         {
-            "item_number": 5,
+            "item number": 5,
             "color": "Orange",
-            "date": "03-22-2016",
+            "date": "2017-01-01",
             "description": "A globose, reddish-yellow, bitter or sweet, edible citrus fruit."
         },
         {
-            "item_number": 6,
+            "item number": 6,
             "color": "Red",
-            "date": "05-18-2018",
+            "date": "2018-05-18",
             "description": "The red, acid fruit or berry of certain plants of the genus Vaccinium, of the heath family, as V. macrocarpon, used in making sauce, relish, jelly, or juice."
         },
         {
-            "item_number": 7,
+            "item number": 7,
             "color": "Purple",
-            "date": "12-25-2018",
+            "date": "2017-12-25",
             "description": "A plant, Solanum melongena esculentum, of the nightshade family, cultivated for its edible, dark-purple or occasionally white or yellow fruit."
         },
         {
-            "item_number": 8,
+            "item number": 8,
             "color": "Black",
-            "date": "11-22-2018",
+            "date": "2018-11-22",
             "description": "The fruit, black or very dark purple when ripe, of certain species of the genus Rubus."
         },
         {
-            "item_number": 9,
+            "item number": 9,
             "color": "White",
-            "date": "02-11-2018",
+            "date": "2011-02-11",
             "description": "A form of cultivated plant, Brassica oleracea botrytis, of the mustard family, whose inflorescence forms a compact, usually whitish head."
         },
         {
-            "item_number": 10,
+            "item number": 10,
             "color": "Red",
-            "date": "06-14-2018",
+            "date": "2017-06-14",
             "description": "The fruit of any of several shrubs belonging to the genus Rubus, of the rose family, consisting of small and juicy red, black, or pale yellow drupelets forming a detachable cap about a convex receptacle."
         },
         {
-            "item_number": 11,
+            "item number": 11,
             "color": "Brown",
-            "date": "03-01-2018",
+            "date": "2014-03-01",
             "description": "Any of several tropical American plants belonging to the genus Manihot, of the spurge family, as M. esculenta (bitter cassava) and M. dulcis (sweet cassava) , cultivated for their tuberous roots, which yield important food products."
         }
     ]

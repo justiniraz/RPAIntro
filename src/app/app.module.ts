@@ -11,7 +11,7 @@ import { SuccessScreenComponent } from './success-screen/success-screen.componen
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DataService } from '../service';
+import { RestProvider } from '../service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -20,14 +20,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FooterComponent } from './ui/footer/footer.component';
 import { SnackBarComponent } from './ui/snack-bar/snack-bar.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material';
 import 'hammerjs';
 import { ErrorComponent } from './error/error.component';
-import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
-  MatSortModule, MatTableModule, MatToolbarModule } from "@angular/material";
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-
-
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -41,12 +37,6 @@ import {MatIconModule} from '@angular/material/icon';
     ErrorComponent
   ],
   imports: [
-    MatToolbarModule,
-    MatIconModule,
-    MatPaginatorModule,
-    MatProgressSpinnerModule,
-    MatSortModule,
-    MatTableModule,
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
@@ -62,7 +52,7 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule
 
   ],
-  providers: [DataService],
+  providers: [RestProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
