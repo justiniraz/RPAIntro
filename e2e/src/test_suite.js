@@ -1,88 +1,89 @@
-describe("Inner Suite 1", function () {
+describe("Test Suite", function () {
+    var csv = require("csvtojson");
+    var csvFilePath = 'e2e/src/testdata.csv';
+
+
     var webdriver = require("selenium-webdriver"),
         By = webdriver.By,
         until = webdriver.until;
 
-    username = 'admin@cedrus.digital';
-    password = 'password';
-    firstName = 'Justin';
+    var username = '';
+    var password = '';
+    var firstName = '';
 
-    var chromeDriver = new webdriver.Builder()
-        .forBrowser('chrome')
-        .build();
-
-
-    var safariDriver = new webdriver.Builder()
-        .forBrowser('safari')
-        .build();
-
-    var ffDriver = new webdriver.Builder()
-        .forBrowser('firefox')
-        .build();
 
 
 
 
     it("Test-Chrome", function () {
 
-        chromeDriver.get('http://localhost:4200');
+        // Convert a csv file with csvtojson
+        csv()
+            .fromFile(csvFilePath)
+            .then(function (jsonArrayObj) { //when parse finished, result will be emitted here.
+                var keys = Object.keys(jsonArrayObj);
+                for (var i = 0; i < keys.length; i++) {
+                    firstName = jsonArrayObj[keys[i]].FNAME;
+                    username = jsonArrayObj[keys[i]].USERNAME;
+                    password = jsonArrayObj[keys[i]].PASSWORD;
 
-        var fName = chromeDriver.wait(until.elementLocated(By.id('firstName')), 2000);
-        fName.sendKeys(firstName);
-
-        var user = chromeDriver.wait(until.elementLocated(By.id('email')), 2000);
-        user.sendKeys(username);
-
-        var pw = chromeDriver.wait(until.elementLocated(By.id('password')), 2000);
-        pw.sendKeys(password);
-
-        var btn = chromeDriver.wait(until.elementLocated(By.id('submitbtn')), 2000);
-        btn.click();
-
-        //chromeDriver.quit();
-
-    });
-
-    it("Test-Safari", function () {
+                    var chromeDriver = new webdriver.Builder()
+                        .forBrowser('chrome')
+                        .build();
 
 
-        safariDriver.get('http://localhost:4200');
+                    chromeDriver.get('http://localhost:4200');
 
-        var fName = safariDriver.wait(until.elementLocated(By.id('firstName')), 2000);
-        fName.sendKeys(firstName);
+                    chromeDriver.wait(until.elementLocated(By.id('firstName')), 2000).sendKeys(firstName);
 
-        var user = safariDriver.wait(until.elementLocated(By.id('email')), 2000);
-        user.sendKeys(username);
+                    chromeDriver.wait(until.elementLocated(By.id('email')), 2000).sendKeys(username);
 
-        var pw = safariDriver.wait(until.elementLocated(By.id('password')), 2000);
-        pw.sendKeys(password);
+                    chromeDriver.wait(until.elementLocated(By.id('password')), 2000).sendKeys(password);
 
-        var btn = safariDriver.wait(until.elementLocated(By.id('submitbtn')), 2000);
-        btn.click();
+                    chromeDriver.wait(until.elementLocated(By.id('submitbtn')), 2000).click();
+                    
+                    chromeDriver.sleep(5000);
 
-        //safariDriver.quit();
+
+
+                }
+            })
 
 
     });
+
 
     it("Test-Firefox", function () {
+        csv()
+            .fromFile(csvFilePath)
+            .then(function (jsonArrayObj) { //when parse finished, result will be emitted here.
+                var keys = Object.keys(jsonArrayObj);
+                for (var i = 0; i < keys.length; i++) {
+                    firstName = jsonArrayObj[keys[i]].FNAME;
+                    username = jsonArrayObj[keys[i]].USERNAME;
+                    password = jsonArrayObj[keys[i]].PASSWORD;
 
-        ffDriver.get('http://localhost:4200');
+                    var firefoxDriver = new webdriver.Builder()
+                        .forBrowser('firefox')
+                        .build();
 
-        var fName = ffDriver.wait(until.elementLocated(By.id('firstName')), 2000);
-        fName.sendKeys(firstName);
 
-        var user = ffDriver.wait(until.elementLocated(By.id('email')), 2000);
-        user.sendKeys(username);
+                    firefoxDriver.get('http://localhost:4200');
 
-        var pw = ffDriver.wait(until.elementLocated(By.id('password')), 2000);
-        pw.sendKeys(password);
+                    firefoxDriver.wait(until.elementLocated(By.id('firstName')), 2000).sendKeys(firstName);
 
-        var btn = ffDriver.wait(until.elementLocated(By.id('submitbtn')), 2000);
-        btn.click();
+                    firefoxDriver.wait(until.elementLocated(By.id('email')), 2000).sendKeys(username);
 
-        //ffDriver.quit();
+                    firefoxDriver.wait(until.elementLocated(By.id('password')), 2000).sendKeys(password);
+
+                    firefoxDriver.wait(until.elementLocated(By.id('submitbtn')), 2000).click();
+
+                    firefoxDriver.sleep(5000)
+
+
+
+                }
+            })
 
     });
-
-});
+})
