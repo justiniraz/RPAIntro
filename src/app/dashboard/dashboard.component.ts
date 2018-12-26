@@ -149,7 +149,7 @@ export interface restData {
         switch (this._sort.active) {
           case 'item_number': [propertyA, propertyB] = [a.item_number, b.item_number]; break;
           case 'color': [propertyA, propertyB] = [a.color, b.color]; break;
-          case 'date': [propertyA, propertyB] = [a.date, b.date]; break;
+          case 'date': [propertyA, propertyB] = [Number(new Date (a.date).valueOf()), Number(new Date(b.date).valueOf())]; break;
           case 'description': [propertyA, propertyB] = [a.description, b.description]; break;
         }
   
