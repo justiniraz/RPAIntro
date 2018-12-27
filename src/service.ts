@@ -1,7 +1,7 @@
 
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import {TestData} from './models/testdata';
+import {TestData} from './app/_models/testdata';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
 @Injectable()

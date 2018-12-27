@@ -1,15 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
 import { SuccessScreenComponent } from './success-screen/success-screen.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ErrorComponent } from './error/error.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './_guards';
+
 
 
 const routes: Routes = [
-  { path: '', component: WelcomeScreenComponent },
-  { path: 'success', component: SuccessScreenComponent},
-  { path: 'dashboard', component: DashboardComponent},
+  { path: '', component: RegisterComponent },
+  { path: 'success', component: SuccessScreenComponent, canActivate: [AuthGuard]},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+
+  // otherwise redirect
   { path: '**', component: ErrorComponent }
 ];
 

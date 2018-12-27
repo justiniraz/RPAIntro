@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DataService } from '../../service';
 import { HttpClient } from '@angular/common/http';
 import {MatPaginator, MatTableDataSource, MatDialog, MatSort} from '@angular/material';
-import {TestData} from '../../models/testdata';
+import {TestData} from '../_models/testdata';
 import {DataSource} from '@angular/cdk/collections';
 import {BehaviorSubject, fromEvent, merge, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -16,7 +16,6 @@ import {map} from 'rxjs/operators';
 })
 export class DashboardComponent implements OnInit {
   
-  //dataSource = new MatTableDataSource<restData>(REST_DATA);
   exampleDatabase: DataService | null;
   dataSource: ExampleDataSource | null;
   index: number;
@@ -70,13 +69,6 @@ export interface restData {
   date: Date;
   description: string;
 }
-
-// const REST_DATA: restData[] = [
-//   {item_number: 1, color: 'Hydrogen', date: new Date("12-13-2018"), description: 'H'},
-//   {item_number: 2, color: 'Helium', date: new Date("12-14-2018"), description: 'He'},
-//   {item_number: 3, color: 'Lithium', date: new Date("12-15-2018"), description: 'Li'},
-//   {item_number: 4, color: 'Beryllium', date: new Date("12-16-2018"), description: 'Be'},
-// ];
 
 
 

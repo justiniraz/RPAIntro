@@ -5,7 +5,8 @@ describe("Test Suite", function () {
 
     var webdriver = require("selenium-webdriver"),
         By = webdriver.By,
-        until = webdriver.until;
+        until = webdriver.until,
+        Key = webdriver.Key;
 
     var username = '';
     var password = '';
@@ -16,8 +17,6 @@ describe("Test Suite", function () {
 
 
     it("Test-Chrome", function () {
-
-        // Convert a csv file with csvtojson
         csv()
             .fromFile(csvFilePath)
             .then(function (jsonArrayObj) { //when parse finished, result will be emitted here.
@@ -33,22 +32,23 @@ describe("Test Suite", function () {
 
 
                     chromeDriver.get('http://localhost:4200');
+                    chromeDriver.manage().window().maximize();
 
                     chromeDriver.wait(until.elementLocated(By.id('firstName')), 2000).sendKeys(firstName);
 
                     chromeDriver.wait(until.elementLocated(By.id('email')), 2000).sendKeys(username);
 
-                    chromeDriver.wait(until.elementLocated(By.id('password')), 2000).sendKeys(password);
+                    chromeDriver.wait(until.elementLocated(By.id('password')), 2000).sendKeys(password, Key.RETURN);
 
-                    chromeDriver.wait(until.elementLocated(By.id('submitbtn')), 2000).click();
-                    
-                    chromeDriver.sleep(5000);
+
+                    chromeDriver.wait(until.elementLocated(By.id('username')), 50000).sendKeys(username);
+                    chromeDriver.wait(until.elementLocated(By.id('pw')), 50000).sendKeys(password, Key.RETURN);
+
 
 
 
                 }
             })
-
 
     });
 
@@ -69,16 +69,18 @@ describe("Test Suite", function () {
 
 
                     firefoxDriver.get('http://localhost:4200');
+                    firefoxDriver.manage().window().maximize();
 
                     firefoxDriver.wait(until.elementLocated(By.id('firstName')), 2000).sendKeys(firstName);
 
                     firefoxDriver.wait(until.elementLocated(By.id('email')), 2000).sendKeys(username);
 
-                    firefoxDriver.wait(until.elementLocated(By.id('password')), 2000).sendKeys(password);
+                    firefoxDriver.wait(until.elementLocated(By.id('password')), 2000).sendKeys(password, Key.RETURN);
 
-                    firefoxDriver.wait(until.elementLocated(By.id('submitbtn')), 2000).click();
 
-                    firefoxDriver.sleep(5000)
+                    firefoxDriver.wait(until.elementLocated(By.id('username')), 50000).sendKeys(username);
+                    firefoxDriver.wait(until.elementLocated(By.id('pw')), 50000).sendKeys(password, Key.RETURN);
+
 
 
 
