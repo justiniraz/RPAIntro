@@ -16,41 +16,41 @@ describe("Test Suite", function () {
 
 
 
-    it("Test-Chrome", function () {
-        csv()
-            .fromFile(csvFilePath)
-            .then(function (jsonArrayObj) { //when parse finished, result will be emitted here.
-                var keys = Object.keys(jsonArrayObj);
-                for (var i = 0; i < keys.length; i++) {
-                    firstName = jsonArrayObj[keys[i]].FNAME;
-                    username = jsonArrayObj[keys[i]].USERNAME;
-                    password = jsonArrayObj[keys[i]].PASSWORD;
+    // it("Test-Chrome", function () {
+    //     csv()
+    //         .fromFile(csvFilePath)
+    //         .then(function (jsonArrayObj) { //when parse finished, result will be emitted here.
+    //             var keys = Object.keys(jsonArrayObj);
+    //             for (var i = 0; i < keys.length; i++) {
+    //                 firstName = jsonArrayObj[keys[i]].FNAME;
+    //                 username = jsonArrayObj[keys[i]].USERNAME;
+    //                 password = jsonArrayObj[keys[i]].PASSWORD;
 
-                    var chromeDriver = new webdriver.Builder()
-                        .forBrowser('chrome')
-                        .build();
-
-
-                    chromeDriver.get('http://localhost:4200');
-                    chromeDriver.manage().window().maximize();
-
-                    chromeDriver.wait(until.elementLocated(By.id('firstName')), 2000).sendKeys(firstName);
-
-                    chromeDriver.wait(until.elementLocated(By.id('email')), 2000).sendKeys(username);
-
-                    chromeDriver.wait(until.elementLocated(By.id('password')), 2000).sendKeys(password, Key.RETURN);
+    //                 var chromeDriver = new webdriver.Builder()
+    //                     .forBrowser('chrome')
+    //                     .build();
 
 
-                    chromeDriver.wait(until.elementLocated(By.id('username')), 50000).sendKeys(username);
-                    chromeDriver.wait(until.elementLocated(By.id('pw')), 50000).sendKeys(password, Key.RETURN);
+    //                 chromeDriver.get('http://localhost:4200');
+    //                 chromeDriver.manage().window().maximize();
+
+    //                 chromeDriver.wait(until.elementLocated(By.id('firstName')), 2000).sendKeys(firstName);
+
+    //                 chromeDriver.wait(until.elementLocated(By.id('email')), 2000).sendKeys(username);
+
+    //                 chromeDriver.wait(until.elementLocated(By.id('password')), 2000).sendKeys(password, Key.RETURN);
+
+
+    //                 chromeDriver.wait(until.elementLocated(By.id('username')), 50000).sendKeys(username);
+    //                 chromeDriver.wait(until.elementLocated(By.id('pw')), 50000).sendKeys(password, Key.RETURN);
 
 
 
 
-                }
-            })
+    //             }
+    //         })
 
-    });
+    // });
 
 
     it("Test-Firefox", function () {
@@ -77,12 +77,16 @@ describe("Test Suite", function () {
 
                     firefoxDriver.wait(until.elementLocated(By.id('password')), 2000).sendKeys(password, Key.RETURN);
 
+                   // firefoxDriver.wait(until.urlIs('http://localhost:4200/login?returnUrl=%2Fsuccess'));
+
+                    firefoxDriver.wait(function() {
+                        return firefoxDriver.getCurrentUrl().then(function(url) {
+                          return url === 'http://localhost:4200/login?returnUrl=%2Fsuccess';
+                        });
+                      }, 1000);
 
                     firefoxDriver.wait(until.elementLocated(By.id('username')), 50000).sendKeys(username);
                     firefoxDriver.wait(until.elementLocated(By.id('pw')), 50000).sendKeys(password, Key.RETURN);
-
-
-
 
                 }
             })
