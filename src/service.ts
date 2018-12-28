@@ -31,4 +31,17 @@ export class DataService {
       console.log (error.name + ' ' + error.message);
       });
   }
-}
+
+    // DEMO ONLY
+    addIssue (testdata: TestData): void {
+      this.dialogData = testdata;
+    }
+  
+    updateIssue (testdata: TestData): void {
+      this.dialogData = testdata;
+    }
+  
+    deleteIssue (id: number): void {
+      console.log(id);
+    }
+  }

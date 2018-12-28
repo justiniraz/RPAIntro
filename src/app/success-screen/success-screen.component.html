@@ -1,16 +1,27 @@
 <div class="jumbotron">
-  <h1>You have successfully logged in!</h1>
-  <h2>Current time: {{now | date:'hh:mm:ss'}}</h2>
-  <ng-container *ngIf="minutes >= 30; else elseTemplate">
-    <div>
-      <img src="  https://media.tenor.com/images/d740131a4906504d47cab865f1bd95b3/tenor.gif" alt="nyancat">
-    </div>
-  </ng-container>
-  <ng-template #elseTemplate>
-    <div>
-      <img src="https://media.glassdoor.com/sqll/1173202/cedrus-squarelogo-1507659520228.png" alt="cedrus.digital">
-    </div>
-  </ng-template>
-<br>
-  <button class="btn btn-primary" id="continue" (click)="btnClick()">Continue</button>
+  <div class="container col-md-6">
+    <h1>Hi {{currentUser.firstName}}!</h1>
+    <p>You have successfully logged in!</p>
+    <h3>All registered users:</h3>
+
+    <li *ngFor="let user of users">
+      {{user.username}} ({{user.firstName}} {{user.lastName}})
+      - <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)" >Delete</button>
+    </li>
+
+
+    <h2>Current time: {{now | date:'hh:mm:ss'}}</h2>
+    <ng-container *ngIf="minutes >= 30; else elseTemplate">
+      <div>
+        <img src="  https://media.tenor.com/images/d740131a4906504d47cab865f1bd95b3/tenor.gif" alt="nyancat">
+      </div>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <div>
+        <img src="https://media.glassdoor.com/sqll/1173202/cedrus-squarelogo-1507659520228.png" alt="cedrus.digital">
+      </div>
+    </ng-template>
+    <br>
+    <button class="btn btn-primary" id="continue" (click)="btnClick()">Continue</button>
+  </div>
 </div>

@@ -19,7 +19,7 @@ import { SnackBarComponent } from './ui/snack-bar/snack-bar.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ErrorComponent } from './error/error.component';
 import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
-  MatSortModule, MatTableModule, MatToolbarModule } from "@angular/material";
+  MatSortModule, MatTableModule, MatToolbarModule, MatDialogModule } from "@angular/material";
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
@@ -27,6 +27,7 @@ import { fakeBackendProvider } from './_helpers';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import 'hammerjs';
+
 
 
 
@@ -45,6 +46,7 @@ import 'hammerjs';
     RegisterComponent
   ],
   imports: [
+    MatDialogModule,
     MatToolbarModule,
     MatIconModule,
     MatPaginatorModule,

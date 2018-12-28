@@ -62,7 +62,7 @@ export class RegisterComponent implements OnInit {
           this.router.navigate(['/success']);
         },
         error => {
-          this.snackbar.openSnackBar('Registration failed. Please try again.', 'Exit');
+          this.snackbar.openSnackBar(error, 'Exit');
           this.alertService.error(error);
           this.loading = false;
         });
